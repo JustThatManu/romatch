@@ -1,0 +1,246 @@
+:root {
+    --primary-color: #1a1a2e;
+    --secondary-color: #808080;
+    --accent-color: #4a90e2;
+    --text-color: #333;
+    --error-color: #ff3e3e;
+    --success-color: #28a745;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--secondary-color);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    min-height: 450px;
+    overflow: hidden;
+    width: 100%;
+    transition: min-height 0.5s ease-in-out;
+}
+
+.login-box:has(#registerForm.active) {
+    min-height: 500px;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-header h2 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.login-header p {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 40px 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+.input-group i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #151525;
+}
+
+.login-btn i {
+    font-size: 1.2em;
+}
+
+.login-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+}
+
+.login-footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login-footer a:hover {
+    color: var(--primary-color);
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        padding: 10px;
+    }
+    
+    .login-box {
+        padding: 20px;
+    }
+}
+
+.standard-login {
+    background-color: var(--accent-color);
+}
+
+.standard-login:hover {
+    background-color: #357abd;
+}
+
+.roblox-login {
+    background-color: var(--primary-color);
+}
+
+.roblox-login:hover {
+    background-color: #151525;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.divider .line {
+    flex: 1;
+    height: 1px;
+    background-color: #ddd;
+    border: none;
+}
+
+.divider span {
+    padding: 0 15px;
+    color: #666;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+
+.additional-links {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.85em;
+}
+
+.small-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.small-link:hover {
+    color: var(--primary-color);
+}
+
+.separator {
+    color: #999;
+    margin: 0 8px;
+}
+
+/* Container Anpassungen */
+.login-box {
+    position: relative;
+    min-height: 450px;
+    overflow: hidden;
+    width: 100%;
+    padding: 40px;
+    transition: min-height 0.5s ease-in-out;
+}
+
+.login-form {
+    position: relative;
+}
+
+/* Formular-Wechsel Styles */
+.form-section {
+    position: absolute;
+    width: calc(100% - 80px);
+    left: 40px;
+    right: 40px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(50px);
+    transition: all 0.5s ease-in-out;
+}
+
+.form-section.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* Verhindert Überlappung während der Animation */
+#registerForm {
+    transform: translateX(-50px);
+}
+
+#registerForm.active {
+    transform: translateX(0);
+}
+
+/* Formular Höhen */
+#loginForm {
+    min-height: 450px;
+}
+
+#registerForm {
+    min-height: 500px;
+}
